@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -18,7 +19,7 @@ public class UserRequestDTO {
     @NotBlank(message = "La clave no puede estar vacía.")
     private String password;
 
-    private List<PhoneDTO> phones;
+    private List<PhoneDTO> phones = new ArrayList<>();
 
 
 }
