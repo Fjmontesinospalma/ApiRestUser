@@ -7,6 +7,8 @@ Este proyecto proporciona un servicio RESTFul para gestionar usuarios. A continu
 
 ## Endpoints
 
+## localhost:8080/api
+
 ### 1. Registrar un nuevo usuario
 
 **POST** `/usuario`
