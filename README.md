@@ -8,8 +8,9 @@ Este proyecto proporciona un servicio RESTFul para gestionar usuarios. A continu
 ## Diagrama de la solución
 
 - **Link**: https://drive.google.com/file/d/1WTm_BXkT3_--JQ2g3ty23v69hL4G2tAJ/view?usp=sharing
-- 
-- 
+
+## swagger
+- **Link**: http://localhost:8080/api/swagger-ui/index.html#/
 
 ## Endpoints -  localhost:8080/api
 
