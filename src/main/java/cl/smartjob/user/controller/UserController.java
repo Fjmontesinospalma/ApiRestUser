@@ -16,16 +16,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * The type User controller.
+ */
 @RestController
 @RequestMapping("/usuario")
 public class UserController {
 
     private final UserService userService;
 
+    /**
+     * Instantiates a new User controller.
+     *
+     * @param userService the user service
+     */
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
+    /**
+     * Register user response entity.
+     *
+     * @param usuarioRequestDTO the usuario request dto
+     * @return the response entity
+     */
     @Transactional
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> registerUser(@Valid @RequestBody UserRequestDTO usuarioRequestDTO) {
@@ -41,12 +55,23 @@ public class UserController {
         }
     }
 
+    /**
+     * Gets all users.
+     *
+     * @return the all users
+     */
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<UserGetResponseDTO>> getAllUsers() {
         List<UserGetResponseDTO> users = userService.getAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
+    /**
+     * Gets by id.
+     *
+     * @param id the id
+     * @return the by id
+     */
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> getById(@PathVariable UUID id) {
         try {
@@ -57,6 +82,13 @@ public class UserController {
         }
     }
 
+    /**
+     * Update response entity.
+     *
+     * @param id             the id
+     * @param userRequestDTO the user request dto
+     * @return the response entity
+     */
     @Transactional
     @PutMapping(value = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> update(@PathVariable UUID id, @Valid @RequestBody UserRequestDTO userRequestDTO) {
@@ -68,6 +100,12 @@ public class UserController {
         }
     }
 
+    /**
+     * Delete response entity.
+     *
+     * @param id the id
+     * @return the response entity
+     */
     @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> delete(@PathVariable UUID id) {
         try {

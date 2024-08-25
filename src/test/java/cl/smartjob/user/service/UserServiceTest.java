@@ -2,8 +2,6 @@ package cl.smartjob.user.service;
 
 import cl.smartjob.user.dto.UserRequestDTO;
 import cl.smartjob.user.dto.UserResponseDTO;
-import cl.smartjob.user.exception.CustomException;
-import cl.smartjob.user.model.User;
 import cl.smartjob.user.repository.UserRepository;
 import cl.smartjob.user.util.Util;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,12 +15,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+/**
+ * The type User service test.
+ */
 @ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
 
@@ -36,12 +34,18 @@ public class UserServiceTest {
     @InjectMocks
     private UserServiceImpl userService;
 
+    /**
+     * Sets up.
+     */
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
     }
 
 
+    /**
+     * Registrar usuario email.
+     */
     @Test
     void registrarUsuarioEmail() {
         // Arrange
@@ -55,6 +59,9 @@ public class UserServiceTest {
 
     }
 
+    /**
+     * Registra usuario correo no existe.
+     */
     @Test
     void RegistraUsuarioCorreoNoExiste() {
 

@@ -4,7 +4,6 @@ package cl.smartjob.user.controller;
 import cl.smartjob.user.dto.UserRequestDTO;
 import cl.smartjob.user.dto.UserResponseDTO;
 import cl.smartjob.user.exception.CustomException;
-import cl.smartjob.user.service.UserService;
 import cl.smartjob.user.service.UserServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -18,6 +17,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+/**
+ * The type User controller test.
+ */
 @WebMvcTest(UserController.class)
 public class UserControllerTest {
 
@@ -30,6 +32,11 @@ public class UserControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
+    /**
+     * Registro usuario valido.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void registroUsuarioValido() throws Exception {
         UserRequestDTO requestDTO = new UserRequestDTO();
@@ -45,6 +52,11 @@ public class UserControllerTest {
                 .andExpect(status().isCreated());
     }
 
+    /**
+     * Registra usuario email existe.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void registraUsuarioEmailExiste() throws Exception {
         UserRequestDTO requestDTO = new UserRequestDTO();

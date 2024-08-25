@@ -7,16 +7,29 @@ import org.springframework.stereotype.Component;
 
 import java.util.regex.Pattern;
 
+/**
+ * The type Util.
+ */
 @Component
 public class Util {
 
     private final PasswordConfig passwordConfig;
 
+    /**
+     * Instantiates a new Util.
+     *
+     * @param passwordConfig the password config
+     */
     @Autowired
     public Util(PasswordConfig passwordConfig) {
         this.passwordConfig = passwordConfig;
     }
 
+    /**
+     * Validate password.
+     *
+     * @param password the password
+     */
     public void validatePassword(String password) {
         String passwordRegex = passwordConfig.getPasswordRegex();
         if (!Pattern.matches(passwordRegex, password)) {

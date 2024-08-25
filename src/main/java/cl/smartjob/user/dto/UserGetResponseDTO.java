@@ -6,6 +6,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * The type User get response dto.
+ */
 @Data
 public class UserGetResponseDTO {
     private UUID id;

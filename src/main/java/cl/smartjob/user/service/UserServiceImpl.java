@@ -11,7 +11,6 @@ import cl.smartjob.user.model.User;
 import cl.smartjob.user.repository.UserRepository;
 import cl.smartjob.user.util.Util;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -19,6 +18,9 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+/**
+ * The type User service.
+ */
 @Service
 @Slf4j
 public class UserServiceImpl implements UserService {
@@ -26,11 +28,23 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final Util util;
 
+    /**
+     * Instantiates a new User service.
+     *
+     * @param userRepository the user repository
+     * @param util           the util
+     */
     public UserServiceImpl(UserRepository userRepository, Util util) {
         this.userRepository = userRepository;
         this.util = util;
     }
 
+    /**
+     * Email exists boolean.
+     *
+     * @param email the email
+     * @return the boolean
+     */
     public boolean emailExists(String email) {
         return userRepository.findByEmail(email).isPresent();
     }
